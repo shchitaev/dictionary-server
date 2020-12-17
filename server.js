@@ -60,7 +60,7 @@ var loadDictionary = (file, callback) => {
     })
 };
 
-downloadDictionary('https://raw.githubusercontent.com/adambom/dictionary/master/dictionary.json', 'dictionary.json', (err) => {
+downloadDictionary('https://raw.githubusercontent.com/shchitaev/dictionary-server/master/dictionary.json', 'dictionary.json', (err) => {
     if (err) {
         console.log(err);
         return;
@@ -76,10 +76,10 @@ downloadDictionary('https://raw.githubusercontent.com/adambom/dictionary/master/
 
 const server = http.createServer(dictionaryHandler);
 
-server.listen(8080, (err) => {  
+server.listen(80, (err) => {  
   if (err) {
     return console.log('error starting server: ' + err);
   }
 
-  console.log('server is listening on 8080');
+  console.log('server is listening on 80');
 });
