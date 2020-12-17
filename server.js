@@ -10,8 +10,8 @@ var dictionaryHandler = (request, response) => {
     var u = url.parse(request.url);
 
     if (u.pathname == '/') {
-            response.writeHead(200);
-            response.end('OK');
+            response.writeHead(200, {'Content-Type': 'text/html; charset=utf-8'});
+            response.end('Это голоссарий терминов<hr>');
         return;
     } 
 
@@ -32,11 +32,11 @@ var dictionaryHandler = (request, response) => {
     }
     var def = dictionary[key];
     if (!def) {
-        response.writeHead(404);
-        response.end(key + ' was not found');
+        response.writeHead(404, {'Content-Type': 'text/html; charset=utf-8'});
+        response.end(key + '<hr>' +'was not found');
         return;
     }
-    response.writeHead(200);
+    response.writeHead(200, {'Content-Type': 'text/html; charset=utf-8'});
     response.end(key + '<hr>' + def);
 }
 
