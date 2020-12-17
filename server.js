@@ -9,6 +9,12 @@ var dictionary = null;
 var dictionaryHandler = (request, response) => {
     var u = url.parse(request.url);
 
+    if (u.pathname == '/') {
+            response.writeHead(200);
+            response.end('OK');
+        return;
+    } 
+
     if (u.pathname == '/readyz') {
         if (dictionary) {
             response.writeHead(200);
@@ -31,7 +37,7 @@ var dictionaryHandler = (request, response) => {
         return;
     }
     response.writeHead(200);
-    response.end(def);
+    response.end(key + '<hr>' + def);
 }
 
 var downloadDictionary = (url, file, callback) => {
