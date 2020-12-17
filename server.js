@@ -76,10 +76,10 @@ downloadDictionary('https://raw.githubusercontent.com/shchitaev/dictionary-serve
 
 const server = http.createServer(dictionaryHandler);
 
-server.listen(80, (err) => {  
+server.listen(8080, (err) => {  
   if (err) {
     return console.log('error starting server: ' + err);
   }
 
-  console.log('server is listening on 80');
+  console.log('server is listening on 8080');
 });
