@@ -3,6 +3,7 @@ var http = require('http');
 var https = require('https');
 var url = require('url');
 
+
 var dictionary = null;
 
 var dictionaryHandler = (request, response) => {
