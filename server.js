@@ -38,6 +38,7 @@ var dictionaryHandler = (request, response) => {
         key = u.pathname.substr(1).toUpperCase(); 
     }
     var def = dictionary[key];
+    
     if (!def) {
         response.writeHead(404, {'Content-Type': 'text/html; charset=utf-8'});
         response.end(key + '<hr>' +'was not found');
