@@ -11,7 +11,7 @@ var dictionaryHandler = (request, response) => {
 
     if (u.pathname == '/') {
             response.writeHead(200, {'Content-Type': 'text/html; charset=utf-8'});
-            response.end('Это голоссарий терминов<hr>');
+            response.end('<p style="text-align: center;">Это голоссарий терминов.</p><hr/><p style="text-align: center;"><a href="./mindmap">Mindmap</a></p>');
         return;
     } 
 
@@ -24,6 +24,13 @@ var dictionaryHandler = (request, response) => {
             response.end('Not Loaded');
         }
         return;
+    }
+
+     if (u.pathname == '/mindmap') {
+        fs.readFile("./mindmap.html", function (err,data) {
+            response.writeHead(200, {'Content-Type': 'text/html' });
+            response.end(data)});
+            return;
     }
 
     var key = '';
