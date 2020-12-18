@@ -34,6 +34,13 @@ var dictionaryHandler = (request, response) => {
             return;
     }
 
+    if (u.pathname == '/json') {
+        fs.readFile("./dictionary.json", function (err,data) {
+            response.writeHead(200, {'Content-Type': 'application/json'});
+            response.end(data)});
+            return;
+    }
+
     var key = '';
     if (u.pathname.length > 0) {
         key = u.pathname.substr(1).toUpperCase(); 
