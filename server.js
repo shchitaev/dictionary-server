@@ -7,7 +7,8 @@ var url = require('url');
 var dictionary = null;
 
 var dictionaryHandler = (request, response) => {
-    var u = url.parse(request.url);
+    var decodedUrl = decodeURI(request.url);
+    var u = url.parse(decodedUrl);
 
     if (u.pathname == '/') {
             response.writeHead(200, {'Content-Type': 'text/html; charset=utf-8'});
