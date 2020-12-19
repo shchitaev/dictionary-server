@@ -28,8 +28,8 @@ var dictionaryHandler = (request, response) => {
     }
 
      if (u.pathname == '/mindmap') {
-        fs.readFile("./mindmap.html", function (err,data) {
-            response.writeHead(200, {'Content-Type': 'text/html' });
+        fs.readFile("./mindmap.svg", function (err,data) {
+            response.writeHead(200, {'Content-Type': 'image/svg+xml' });
             response.end(data)});
             return;
     }
