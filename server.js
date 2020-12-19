@@ -6,12 +6,13 @@ var url = require('url');
 
 var dictionary = null;
 
+
+
 var dictionaryHandler = (request, response) => {
     var decodedUrl = decodeURI(request.url);
     var u = url.parse(decodedUrl);
-
     response.setHeader('Access-Control-Allow-Origin', '*');
-    
+        
     if (u.pathname == '/') {
             response.writeHead(200, {'Content-Type': 'text/html; charset=utf-8'});
             response.end('<p style="text-align: center;">Это голоссарий терминов.</p><hr/><p style="text-align: center;"><a href="./mindmap">Mindmap</a></p>');
@@ -31,7 +32,7 @@ var dictionaryHandler = (request, response) => {
 
      if (u.pathname == '/mindmap') {
         fs.readFile("./mindmap.svg", function (err,data) {
-            response.writeHead(200, {'Content-Type': 'image/svg+xml' });
+            response.writeHead(200, {'Content-Type': 'image/svg' });
             response.end(data)});
             return;
     }
